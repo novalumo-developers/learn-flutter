@@ -34,6 +34,7 @@ class _MyOwnHomePageState extends State<MyOwnHomePage> {
   Widget build(BuildContext context) {
     double _cardRadius = 8;
     double _cardPadding = 18;
+    final double _statusBarHeight = MediaQuery.of(context).padding.top;
 
     // app data list
     var _appList = [
@@ -114,194 +115,222 @@ class _MyOwnHomePageState extends State<MyOwnHomePage> {
               ///
               /// Card 1
               ///
-              Card(
-                margin: EdgeInsets.only(top: 18, bottom: 18),
-                elevation: 5,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(_cardRadius)),
-                child: Container(
-                  width: double.infinity,
-                  child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        ClipRRect(
-                          borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(_cardRadius),
-                              topRight: Radius.circular(_cardRadius)),
-                          child: Image.network(
-                            'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80',
-                            fit: BoxFit.cover,
-                            width: double.infinity,
-                            height: 240,
+              GestureDetector(
+                onTap: () => {
+                  setState(() {
+                    _selectedIndex = 1;
+                  })
+                },
+                child: Card(
+                  margin: EdgeInsets.only(top: 18, bottom: 18),
+                  elevation: 5,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(_cardRadius)),
+                  child: Container(
+                    width: double.infinity,
+                    child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(_cardRadius),
+                                topRight: Radius.circular(_cardRadius)),
+                            child: Image.network(
+                              'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80',
+                              fit: BoxFit.cover,
+                              width: double.infinity,
+                              height: 240,
+                            ),
                           ),
-                        ),
-                        Container(
-                          padding: EdgeInsets.all(_cardPadding),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'Collection',
-                                style: TextStyle(
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.grey),
-                              ),
-                              Text('Everyone\'s Favorites',
+                          Container(
+                            padding: EdgeInsets.all(_cardPadding),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Collection',
                                   style: TextStyle(
-                                      fontSize: 28,
-                                      fontWeight: FontWeight.bold))
-                            ],
-                          ),
-                        )
-                      ]),
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.grey),
+                                ),
+                                Text('Everyone\'s Favorites',
+                                    style: TextStyle(
+                                        fontSize: 28,
+                                        fontWeight: FontWeight.bold))
+                              ],
+                            ),
+                          )
+                        ]),
+                  ),
                 ),
               ),
 
               ///
               /// Card 2
               ///
-              Card(
-                margin: EdgeInsets.only(bottom: 18),
-                elevation: 5,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(_cardRadius)),
-                child: Container(
-                  width: double.infinity,
-                  child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        ClipRRect(
-                          borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(_cardRadius),
-                              topRight: Radius.circular(_cardRadius)),
-                          child: Image.network(
-                            'https://images.unsplash.com/photo-1520271348391-049dd132bb7c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
-                            fit: BoxFit.cover,
-                            width: double.infinity,
-                            height: 240,
+              GestureDetector(
+                onTap: () => {
+                  setState(() {
+                    _selectedIndex = 2;
+                  })
+                },
+                child: Card(
+                  margin: EdgeInsets.only(bottom: 18),
+                  elevation: 5,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(_cardRadius)),
+                  child: Container(
+                    width: double.infinity,
+                    child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(_cardRadius),
+                                topRight: Radius.circular(_cardRadius)),
+                            child: Image.network(
+                              'https://images.unsplash.com/photo-1520271348391-049dd132bb7c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
+                              fit: BoxFit.cover,
+                              width: double.infinity,
+                              height: 240,
+                            ),
                           ),
-                        ),
-                        Container(
-                          padding: EdgeInsets.all(_cardPadding),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'How to',
-                                style: TextStyle(
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.grey),
-                              ),
-                              Text('Light Up Your Photos',
+                          Container(
+                            padding: EdgeInsets.all(_cardPadding),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'How to',
                                   style: TextStyle(
-                                      fontSize: 28,
-                                      fontWeight: FontWeight.bold)),
-                              Text(
-                                'Give your shots a whole new hue.',
-                                style: TextStyle(
-                                    fontSize: 14,
-                                    color: Colors.grey,
-                                    height: 1.5),
-                              ),
-                            ],
-                          ),
-                        )
-                      ]),
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.grey),
+                                ),
+                                Text('Light Up Your Photos',
+                                    style: TextStyle(
+                                        fontSize: 28,
+                                        fontWeight: FontWeight.bold)),
+                                Text(
+                                  'Give your shots a whole new hue.',
+                                  style: TextStyle(
+                                      fontSize: 14,
+                                      color: Colors.grey,
+                                      height: 1.5),
+                                ),
+                              ],
+                            ),
+                          )
+                        ]),
+                  ),
                 ),
               ),
 
               ///
               /// Card 3
               ///
-              Card(
-                margin: EdgeInsets.only(bottom: 18),
-                elevation: 5,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(_cardRadius)),
-                child: Container(
-                    width: double.infinity,
-                    child: Stack(
-                      children: [
-                        ClipRRect(
-                          borderRadius:
-                              BorderRadius.all(Radius.circular(_cardRadius)),
-                          child: Image.network(
-                            'https://images.unsplash.com/photo-1600210492493-0946911123ea?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80',
-                            fit: BoxFit.cover,
-                            width: double.infinity,
-                            height: 420,
+              GestureDetector(
+                onTap: () => {
+                  setState(() {
+                    _selectedIndex = 3;
+                  })
+                },
+                child: Card(
+                  margin: EdgeInsets.only(bottom: 18),
+                  elevation: 5,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(_cardRadius)),
+                  child: Container(
+                      width: double.infinity,
+                      child: Stack(
+                        children: [
+                          ClipRRect(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(_cardRadius)),
+                            child: Image.network(
+                              'https://images.unsplash.com/photo-1600210492493-0946911123ea?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80',
+                              fit: BoxFit.cover,
+                              width: double.infinity,
+                              height: 420,
+                            ),
                           ),
-                        ),
-                        Container(
-                          padding: EdgeInsets.all(24),
-                          child: Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'The Basics',
-                                  style: TextStyle(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.grey),
-                                ),
-                                Text('Transform your home',
+                          Container(
+                            padding: EdgeInsets.all(24),
+                            child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'The Basics',
                                     style: TextStyle(
-                                        fontSize: 28,
+                                        fontSize: 20,
                                         fontWeight: FontWeight.bold,
-                                        color: Colors.grey.shade800)),
-                              ]),
-                        )
-                      ],
-                    )),
+                                        color: Colors.grey),
+                                  ),
+                                  Text('Transform your home',
+                                      style: TextStyle(
+                                          fontSize: 28,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.grey.shade800)),
+                                ]),
+                          )
+                        ],
+                      )),
+                ),
               ),
 
               ///
               /// Card 4
               ///
-              Card(
-                margin: EdgeInsets.only(bottom: 18),
-                elevation: 5,
-                child: Container(
-                  width: double.infinity,
-                  padding: EdgeInsets.all(_cardPadding),
-                  child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Now Trending',
-                          style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.grey),
-                        ),
-                        Text('Top games this week',
+              GestureDetector(
+                onTap: () => {
+                  setState(() {
+                    _selectedIndex = 4;
+                  })
+                },
+                child: Card(
+                  margin: EdgeInsets.only(bottom: 18),
+                  elevation: 5,
+                  child: Container(
+                    width: double.infinity,
+                    padding: EdgeInsets.all(_cardPadding),
+                    child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Now Trending',
                             style: TextStyle(
-                                fontSize: 28, fontWeight: FontWeight.bold)),
-                        // show app list below
-                        Container(
-                          height: 200,
-                          child: ListView.builder(
-                            scrollDirection: Axis.horizontal,
-                            itemCount: _appList.length,
-                            itemBuilder: (context, index) {
-                              return Container(
-                                height: 50,
-                                child: Center(
-                                    child: Text(
-                                        'Entry ${_appList[index]['title']}')),
-                              );
-                            },
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.grey),
                           ),
-                        )
-                      ]),
+                          Text('Top games this week',
+                              style: TextStyle(
+                                  fontSize: 28, fontWeight: FontWeight.bold)),
+                          // show app list below
+                          Container(
+                            height: 200,
+                            child: ListView.builder(
+                              scrollDirection: Axis.horizontal,
+                              itemCount: _appList.length,
+                              itemBuilder: (context, index) {
+                                return Container(
+                                  height: 50,
+                                  child: Center(
+                                      child: Text(
+                                          'Entry ${_appList[index]['title']}')),
+                                );
+                              },
+                            ),
+                          )
+                        ]),
+                  ),
                 ),
               ),
             ],
